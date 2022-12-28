@@ -1,0 +1,92 @@
+<div class="flex justify-center my-3">
+  <div>
+    <span class="text-2xl text-gray-900"> Generador</span>
+  </div>
+</div>
+
+<form [formGroup]="formulario" autocomplete="off">
+  <div class="grid grid-cols-4 gap-2 justify-center mx-4">
+    <div>
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Bin</mat-label>
+        <input matInput formControlName="bin" type="text" placeholder="000000xxxxxxxxxx">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Mes</mat-label>
+        <mat-select formControlName="mes">
+          <mat-option value="0">Mes random</mat-option>
+          <mat-option value="1">Enero</mat-option>
+          <mat-option value="2">Febrero</mat-option>
+          <mat-option value="3">Marzo</mat-option>
+          <mat-option value="4">Abril</mat-option>
+          <mat-option value="5">Mayo</mat-option>
+          <mat-option value="6">Junio</mat-option>
+          <mat-option value="7">Julio</mat-option>
+          <mat-option value="8">Agosto</mat-option>
+          <mat-option value="9">Septiembre</mat-option>
+          <mat-option value="10">Octubre</mat-option>
+          <mat-option value="11">Nombiembre</mat-option>
+          <mat-option value="12">Diciembre</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>Año</mat-label>
+        <mat-select formControlName="anio">
+          <mat-option value="0">Año random</mat-option>
+          <mat-option value="21">2021</mat-option>
+          <mat-option value="22">2022</mat-option>
+          <mat-option value="23">2023</mat-option>
+          <mat-option value="24">2024</mat-option>
+          <mat-option value="25">2025</mat-option>
+          <mat-option value="26">2026</mat-option>
+          <mat-option value="27">2027</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-label>CCV</mat-label>
+        <input matInput formControlName="cvv" type="text" placeholder="000">
+      </mat-form-field>
+    </div>
+  </div>
+</form>
+
+<div class="flex justify-center my-3">
+  <div>
+    <button mat-button style="border: 2px solid" class="border-2 border-gray-900 rounded-lg text-gray-900 hover:bg-gray-900 hover:text-white" (click)="generar()">
+      Generar
+    </button>
+
+    <button mat-button style="border: 2px solid" class="border-2 border-red-600 rounded-lg text-red-600 hover:bg-red-600 hover:text-white mx-3" (click)="formulario.reset()">
+      Limpiar
+    </button>
+  </div>
+</div>
+
+<!-- {{ tarjetas | json }} -->
+
+
+<div class="grid-flow-row justify-center m-10">
+  <!-- <div>
+    <textarea style="border: 2px solid;" class="border-2 border-gray-900 rounded-lg text-gray-900 w-full bg-transparent p-4 text-center" rows="15" [formControl]="resultado"></textarea>
+    <div class="flex justify-center mb-5">
+      <div>
+        <button mat-button style="border: 2px solid" class="border-2 border-red-600 rounded-lg text-red-600 hover:bg-red-600 hover:text-white mx-3" (click)="resultado.reset()">
+          Limpiar
+        </button>
+      </div>
+    </div>
+  </div> -->
+  <mat-form-field appearance="outline" class="w-full">
+    <mat-label>Resultado</mat-label>
+    <textarea matInput type="text" class="bg-transparent" rows="15" [formControl]="resultado"></textarea>
+    <button *ngIf="resultado.value" matSuffix mat-icon-button aria-label="Clear" (click)="resultado.reset()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
