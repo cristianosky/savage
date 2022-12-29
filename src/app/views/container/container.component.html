@@ -1,14 +1,12 @@
-
+<!--
   <div class="flex flex-wrap">
     <section class="relative mx-auto">
-        <!-- navbar -->
       <nav class="flex justify-between bg-gray-900 text-white w-screen">
         <div class="px-5 xl:px-12 py-6 flex w-full items-center">
           <a class="text-3xl font-bold font-heading" href="#">
-            <!-- <img class="w-14 h-14 rounded-full" src="../../../assets/img/logo.jpg" alt="logo"> -->
             Savage.
           </a>
-          <!-- Nav Links -->
+
           <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
             <li><a class="hover:text-gray-200" href="#">Home</a></li>
             <li><a class="hover:text-gray-200 cursor-pointer" [matMenuTriggerFor]="menu">Herramientas</a></li>
@@ -27,10 +25,9 @@
               </button>
             </mat-menu>
           </ul>
-          <!-- Header Icons -->
+
           <div class="hidden xl:flex items-center space-x-5">
 
-            <!-- Sign In / Register      -->
             <a class="flex items-center hover:text-gray-200" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -39,7 +36,6 @@
 
           </div>
         </div>
-        <!-- Responsive navbar -->
         <a class="xl:hidden flex mr-6 items-center" href="#">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -59,7 +55,7 @@
 
     </section>
   </div>
-  <router-outlet></router-outlet>
+  <router-outlet></router-outlet> -->
 
 <!-- <div class="absolute bottom-0 right-0 mb-4 mr-4 z-10">
     <div>
@@ -68,3 +64,45 @@
         </a>
     </div>
 </div> -->
+
+<nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-900 mb-3">
+  <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+    <div class="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
+      <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" routerLink="/">
+        Savage
+      </a>
+      <button class="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" (click)="toggleNavbar()">
+        <mat-icon>density_medium</mat-icon>
+      </button>
+    </div>
+    <div [ngClass]="{'hidden': !showMenu, 'flex': showMenu}" class="lg:flex lg:flex-grow items-center">
+      <ul class="flex flex-col lg:flex-row list-none ml-auto">
+        <li class="nav-item">
+          <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" routerLink="/">
+            <i class="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span class="ml-2">Inicio</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" [matMenuTriggerFor]="menu">
+            <i class="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span class="ml-2">Herramientas</span>
+          </a>
+          <mat-menu #menu="matMenu" class="border">
+            <button mat-menu-item routerLink="/generador">
+              <span>Generador</span>
+            </button>
+            <button mat-menu-item routerLink="/limpiador">
+              <span>Limpiador</span>
+            </button>
+            <button mat-menu-item routerLink="/verip">
+              <span>Verificar IP</span>
+            </button>
+            <button mat-menu-item routerLink="/informacion">
+              <span>Generar Info</span>
+            </button>
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

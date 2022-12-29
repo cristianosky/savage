@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-container',
   templateUrl: './container.component.html',
   styleUrls: ['./container.component.css']
 })
-export class ContainerComponent implements OnInit {
+export class ContainerComponent  {
 
   constructor() { }
 
-  ngOnInit(): void {
+  showMenu = false;
+  toggleNavbar(){
+    this.showMenu = !this.showMenu;
   }
 
 }
