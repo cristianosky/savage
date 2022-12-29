@@ -77,7 +77,7 @@
     </div>
     <div [ngClass]="{'hidden': !showMenu, 'flex': showMenu}" class="lg:flex lg:flex-grow items-center">
       <ul class="flex flex-col lg:flex-row list-none ml-auto">
-        <li class="nav-item">
+        <li class="nav-item" (click)="toggleNavbar()">
           <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" routerLink="/">
             <i class="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i><span class="ml-2">Inicio</span>
           </a>
@@ -87,16 +87,16 @@
             <i class="fab fa-twitter text-lg leading-lg text-white opacity-75"></i><span class="ml-2">Herramientas</span>
           </a>
           <mat-menu #menu="matMenu" class="border">
-            <button mat-menu-item routerLink="/generador">
+            <button mat-menu-item routerLink="/generador" (click)="toggleNavbar()">
               <span>Generador</span>
             </button>
-            <button mat-menu-item routerLink="/limpiador">
+            <button mat-menu-item routerLink="/limpiador" (click)="toggleNavbar()">
               <span>Limpiador</span>
             </button>
-            <button mat-menu-item routerLink="/verip">
+            <button mat-menu-item routerLink="/verip" (click)="toggleNavbar()">
               <span>Verificar IP</span>
             </button>
-            <button mat-menu-item routerLink="/informacion">
+            <button mat-menu-item routerLink="/informacion" (click)="toggleNavbar()">
               <span>Generar Info</span>
             </button>
           </mat-menu>
