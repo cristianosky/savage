@@ -9,6 +9,10 @@ const routes: Routes = [
     { path: 'generador', loadChildren: () => import('./views/generador/generador.module').then(m => m.GeneradorModule) },
 
     { path: 'limpiador', loadChildren: () => import('./views/limpiador/limpiador.module').then(m => m.LimpiadorModule) },
+
+    { path: 'verip', loadChildren: () => import('./views/verip/verip.module').then(m => m.VeripModule) },
+
+    { path: 'informacion', loadChildren: () => import('./views/informacion/informacion.module').then(m => m.InformacionModule) }
   ] }
 ];
 

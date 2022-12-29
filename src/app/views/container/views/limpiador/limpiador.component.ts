@@ -10,6 +10,7 @@ import { GeneradorService } from 'src/app/services/generador/generador.service';
 export class LimpiadorComponent {
   envio = new FormControl('')
   resultado = new FormControl('')
+  cargando: boolean = false;
   constructor(private _GeneradorService: GeneradorService) { }
 
   limpiar() {
@@ -17,10 +18,12 @@ export class LimpiadorComponent {
     let data = {
       data: this.envio.value
     }
-
+    this.cargando = true;
     this._GeneradorService.clearData(data).subscribe((res: any) => {
-      console.log(res);
-      this.resultado.setValue(res.data);
+      this.cargando = false;
+      if(res.data){
+        this.resultado.setValue(res.data);
+      }
     });
   }
 }

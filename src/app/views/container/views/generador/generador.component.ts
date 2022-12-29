@@ -12,20 +12,22 @@ export class GeneradorComponent {
   formulario: FormGroup;
   tarjetas: Tarjetas[] = [];
   resultado = new FormControl('')
+  cargando: boolean = false;
   constructor(private _generador: GeneradorService, private fb: FormBuilder) {
     this.formulario = this.fb.group({
-      bin: ['448900060913', [Validators.required]],
-      mes: ['12', [Validators.required]],
-      anio: ['27', [Validators.required]],
-      cvv: ['157', [Validators.required]],
+      bin: ['', [Validators.required]],
+      mes: ['random'],
+      anio: ['random'],
+      cvv: [''],
     });
   }
 
   generar() {
     const { bin, mes, anio, cvv } = this.formulario.value;
     let body = {
-      data: `${bin}|${mes}|${anio}|${cvv}`,
+      data: `${bin}|${mes}|${anio}|${cvv ? cvv : 'random'}`,
     }
+    this.cargando = true
     this._generador.generarData(body).subscribe((data: any) => {
       if(data.status == 'success'){
         this.resultado.setValue(data.data);
@@ -40,8 +42,8 @@ export class GeneradorComponent {
             cvv: separacion[3],
           })
         });
-
       }
+      this.cargando = false
     });
   }
 

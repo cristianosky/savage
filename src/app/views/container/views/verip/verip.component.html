@@ -1,0 +1,70 @@
+<div class="m-5">
+  <div class="flex justify-center">
+    <div>
+      <span class="text-2xl">Verificar IP</span>
+    </div>
+  </div>
+
+  <div class="mx-auto w-full my-3">
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>IP</mat-label>
+      <input matInput [formControl]="ip">
+    </mat-form-field>
+  </div>
+
+  <div class="flex justify-center">
+    <div>
+      <button mat-button style="border: 2px solid" class="border-2 border-gray-900 rounded-lg text-gray-900 hover:bg-gray-900 hover:text-white" (click)="varificarIP()">
+        Verificar
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="data">
+    <div class="flex justify-center my-3">
+      <div>
+        <span class="text-2xl">Resultado</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 text-xl">
+      <div>
+        <span>Riesgo bajo</span>
+      </div>
+      <div class="ml-auto">
+        <span>Riesgo alto</span>
+      </div>
+    </div>
+
+    <div class="w-full bg-gray-300 h-8 mb-6 rounded-lg">
+      <div class="h-8 w-full rounded-lg" [ngClass]="{ 'bg-green-400' : data.valor < 25, 'bg-yellow-600' : data.valor > 25 && data.valor < 51, 'bg-red-600' : data.valor > 50 }" [ngStyle]="{ 'width' : data.valor+'%' }"></div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 text-xl">
+      <div>
+        <span>0</span>
+      </div>
+      <div class="ml-auto">
+        <span>100</span>
+      </div>
+    </div>
+
+    <div class="flex justify-center">
+      <div>
+        <span class="text-2xl">{{data.score}}</span>
+      </div>
+    </div>
+
+    <!-- <div class="my-2">
+      <span class="text-sm">{{ data.text }}</span>
+    </div> -->
+  </div>
+
+  <ng-container *ngIf="cargando">
+    <div class="flex justify-center my-3">
+      <div>
+        <mat-spinner></mat-spinner>
+      </div>
+    </div>
+  </ng-container>
+</div>

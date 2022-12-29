@@ -18,4 +18,12 @@ export class GeneradorService {
   clearData(body: any) {
     return this._http.post(`${this.url}clear`, body);
   }
+
+  verificarIP(data: any) {
+    return this._http.post(`${this.url}ip_risk`, data);
+  }
+
+  genearInfo(data: any) {
+    return this._http.post(`${this.url}fake_info`, data);
+  }
 }

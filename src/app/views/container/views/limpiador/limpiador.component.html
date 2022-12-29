@@ -15,13 +15,20 @@
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field appearance="outline" class="w-full">
+      <mat-form-field appearance="outline" class="w-full" *ngIf="resultado.value">
         <mat-label>Resultado</mat-label>
         <textarea matInput type="text" class="bg-transparent" rows="15" [formControl]="resultado"></textarea>
         <button *ngIf="resultado.value" matSuffix mat-icon-button aria-label="Clear" (click)="resultado.reset()">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
+      <ng-container *ngIf="cargando">
+        <div class="flex justify-center my-3">
+          <div>
+            <mat-spinner></mat-spinner>
+          </div>
+        </div>
+      </ng-container>
     </div>
   </div>
   <div class="flex justify-center">

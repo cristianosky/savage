@@ -1,33 +1,28 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatSelectModule } from '@angular/material/select';
-import { GeneradorRoutingModule } from './generador-routing.module';
-import { GeneradorComponent } from './generador.component';
-
-
+import { VeripRoutingModule } from './verip-routing.module';
+import { VeripComponent } from './verip.component';
 
 
 @NgModule({
   declarations: [
-    GeneradorComponent
+    VeripComponent
   ],
   imports: [
     CommonModule,
-    GeneradorRoutingModule,
+    VeripRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    MatIconModule,
     MatProgressSpinnerModule
   ]
 })
-export class GeneradorModule { }
+export class VeripModule { }

@@ -1,3 +1,6 @@
+/* ::ng-deep .mat-progress-spinner{
+  stroke: #111827 !important;
+} */
 :host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
   stroke: #111827;
 }
